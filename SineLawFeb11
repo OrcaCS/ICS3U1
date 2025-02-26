@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class SineLaw {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("\n\nPlease enter an angle in degrees (A): ");
+        double A = keyboard.nextDouble();
+
+        System.out.println("\nPlease enter a side value (a): ");
+        double a = keyboard.nextDouble();
+
+        System.out.println("\nPlease enter another side value (b): ");
+        double b = keyboard.nextDouble();
+
+        keyboard.close();
+
+        double BRad = (Math.asin((b * Math.sin(Math.toRadians(A))) / a));
+        //B = arcsin(bsinA/a)
+
+        double B = Math.toDegrees(BRad);
+        
+        System.out.println("\nYour missing angle B is: " + B + " degrees");
+    }
+}
