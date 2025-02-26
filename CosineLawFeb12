@@ -1,0 +1,22 @@
+  import java.util.Scanner;
+
+public class CosineLaw {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("\n\nPlease enter an angle in degrees (c): ");
+        double angleC = keyboard.nextDouble();
+
+        System.out.println("\nPlease enter an adjacent side value (a): ");
+        double a = keyboard.nextDouble();
+
+        System.out.println("\nPlease enter the other adjacent side value (b): ");
+        double b = keyboard.nextDouble();
+
+        keyboard.close();
+
+        double c = Math.sqrt(a * a + b * b - 2 * a * b * Math.cos(Math.toRadians(angleC)));
+
+        System.out.println("Your missing side (opposite to angle) is: " + c);
+    }
+}
