@@ -24,5 +24,6 @@ public class NewtonsMethod {
                     break;
                 }
         }
+        keyboard.close();
     }
 }
