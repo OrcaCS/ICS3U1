@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("Please enter a decimal: ");
+        
+        double input = keyboard.nextDouble();
+        
+        keyboard.close();  // Close the scanner object properly
+        
+        System.out.println("Your decimal is: " + input);
+        
+        input = (int)input;
+        
+        System.out.println("Your truncated decimal is: "+ input);
+    }
+}
