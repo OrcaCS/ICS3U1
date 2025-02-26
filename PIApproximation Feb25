@@ -24,5 +24,6 @@ public class PIApproximation {
                 break;
             }
         }
+        keyboard.close();
     }
 }
