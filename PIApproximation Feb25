@@ -6,7 +6,7 @@ public class PIApproximation {
 
         while (true) {
             double sum = 0;
-            
+
             System.out.println("\n\n" + "Please enter an n value: ");
             int n = keyboard.nextInt();
 
@@ -14,10 +14,10 @@ public class PIApproximation {
                 double formula = Math.pow(-1, count) / (2 * count + 1);
                 sum += formula;
             }
-        
-        System.out.println("Your pi approximation is: " + sum * 4);
-        
-        System.out.println("\nWould you like to try again? (y/n)");
+
+            System.out.println("Your pi approximation is: " + sum * 4);
+
+            System.out.println("\nWould you like to try again? (y/n)");
             if (keyboard.next().equals("y")) {
                 continue;
             } else {
