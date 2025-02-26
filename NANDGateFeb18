@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class NANDGate {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+        boolean status = true;
+
+        System.out.println("\n\nPlease enter an a value (true/false): ");
+        boolean a = keyboard.nextBoolean();
+        System.out.println("\n\nPlease enter a b value (true/false): ");
+        boolean b = keyboard.nextBoolean();
+        keyboard.close();
+
+        status = (a && b) == false;
+        System.out.println("\n Your NAND gate status is: " + status);
+    }
+}
