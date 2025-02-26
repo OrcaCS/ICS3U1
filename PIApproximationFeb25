@@ -1,1 +1,28 @@
+import java.util.Scanner;
 
+public class PIApproximation {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        while (true) {
+            double sum = 0;
+            
+            System.out.println("\n\n" + "Please enter an n value: ");
+            int n = keyboard.nextInt();
+
+            for (int count = 0; count != n; count++) {
+                double formula = Math.pow(-1, count) / (2 * count + 1);
+                sum += formula;
+            }
+        
+        System.out.println("Your pi approximation is: " + sum * 4);
+        
+        System.out.println("\nWould you like to try again? (y/n)");
+            if (keyboard.next().equals("y")) {
+                continue;
+            } else {
+                break;
+            }
+        }
+    }
+}
