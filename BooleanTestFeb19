@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class BooleanTest {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("\n\nPlease enter an a value (true/false): ");
+        boolean a = keyboard.nextBoolean();
+        System.out.println("\n\nPlease enter a b value (true/false): ");
+        boolean b = keyboard.nextBoolean();
+        System.out.println("\n\nPlease enter an c value (true/false): ");
+        boolean c = keyboard.nextBoolean();
+        System.out.println("\n\nPlease enter a d value (true/false): ");
+        boolean d = keyboard.nextBoolean();
+        keyboard.close();
+
+        System.out.println("\n Your boolean status is: " + (((a && b) == true) || ((c && d) == true) || ((a && c) == true) || ((a && d) == true) || ((b && d) == true) || ((b && c) == true)));
+    }
+}
