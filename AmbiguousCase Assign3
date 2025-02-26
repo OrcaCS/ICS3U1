@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class AmbiguousCase {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("\n\nPlease enter an angle in degrees (A) (A =/= 90 degrees): ");
+        double angleA = keyboard.nextDouble();
+        System.out.println("\nPlease enter a side value (a): ");
+        double a = keyboard.nextDouble();
+        System.out.println("\nPlease enter another side value (b): ");
+        double b = keyboard.nextDouble();
+        keyboard.close();
+
+        double h = b * Math.sin(Math.toRadians(angleA));
+
+        if (a < 90) {
+            if (a < h) {
+                System.out.println("You have no triangle.");
+            } else if (a == h) {
+                System.out.println("You have a right triangle.");
+            } else if (a > b) {
+                System.out.println("You have one triangle.");
+            } else {
+                System.out.println("You have two triangles (ambiguous case).");
+            }
+        } else {
+            if (a <= h) {
+                System.out.println("You have no triangle.");
+            }
+            else {
+                System.out.println("You have one triangle.");
+            }
+        }
+    }
+}
