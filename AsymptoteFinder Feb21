@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class AsymptoteFinder {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("\n \nPlease enter the degree of the numerator's polynomial (m): ");
+        int m = keyboard.nextInt();
+        System.out.println("\nPlease enter the degree of the denominator's polynomial (n):  ");
+        int n = keyboard.nextInt();
+        keyboard.close();
+
+        if (m == n) {
+            System.out.println("\nThe asymptote is horizontal.");
+        } else if (n > m) {
+            System.out.println("\nThe asymptote is the x-axis.");
+        } else {
+            int difference = m - n;
+            switch (difference) {
+                case 10:
+                    System.out.println("\nThe asymptote is decic.");
+                    break;
+                case 9:
+                    System.out.println("\nThe asymptote is nonic.");
+                    break;
+                case 8:
+                    System.out.println("\nThe asymptote is octic.");
+                    break;
+                case 7:
+                    System.out.println("\nThe asymptote is septic.");
+                    break;
+                case 6:
+                    System.out.println("\nThe asymptote is sextic.");
+                    break;
+                case 5:
+                    System.out.println("\nThe asymptote is quintic.");
+                    break;
+                case 4:
+                    System.out.println("\nThe asymptote is quartic.");
+                    break;
+                case 3:
+                    System.out.println("\nThe asymptote is cubic.");
+                    break;
+                case 2:
+                    System.out.println("\nThe asymptote is quadratic.");
+                    break;
+                case 1:
+                    System.out.println("\nThe asymptote is linear.");
+                    break;
+                    }
+            if (difference > 10) {
+                System.out.println("\nDifference is too large. Please input smaller differences.\n");
+            }
+        }
+    }
+}
