@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class NewtonsMethod {
@@ -20,7 +21,7 @@ public class NewtonsMethod {
             }
         
             System.out.println("Would you like to try again? [y/n]");
-                if (keyboard.next().equals("n")) {
+                if (keyboard.next().equals("n") || keyboard.next().equals("N")) {
                     break;
                 }
         }
