@@ -27,8 +27,7 @@ public class AmbiguousCase {
         } else {
             if (a <= h) {
                 System.out.println("You have no triangle.");
-            }
-            else {
+            } else {
                 System.out.println("You have one triangle.");
             }
         }
