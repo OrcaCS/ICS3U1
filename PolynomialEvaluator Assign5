@@ -1,0 +1,28 @@
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class PolynomialEvaluator {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("Enter a polynomial that starts with 'f(x)' and is a degree of three: ");
+        String polynomial = keyboard.nextLine();
+        System.out.println("Enter a value for x: ");
+        int x = keyboard.nextInt();
+
+        keyboard.close();
+
+        //check later delim is f(x)
+        StringTokenizer st = new StringTokenizer(polynomial, " ");
+        while (st.hasMoreTokens()) {
+            System.out.println(st.nextToken());
+        }
+
+        /* st1 find coefficient
+         * coeff * x * read pow multiply
+         * 
+         * same for others
+         * 
+         */
+    }
+}
