@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class ArrayTest {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        //String[] array = new String[10];
+        String[] array = { "1", "2", "3", "4", "0", "0", "0", "0", "0", "0" };
+
+        while (true) {
+            System.out.println("\n\nMenu\n\n 1. Enter an array of strings. \n 2. Display the array. \n 3. Read a string from the array. \n 4. Stop the program. \n\nPlease enter a number corrresponding to the above option.");
+
+            if (keyboard.nextInt() == 1) {
+                System.out.println("\nEntering strings.");
+                for (int i = 0; i <= array.length; i++) {
+                        System.out.print("Please enter string " + (i + 1) + ": ");
+                        array[i] = keyboard.nextLine();
+                    }
+                }
+                //for (int i = 0; i < array.length; i++) {
+                    //System.out.println(array[i]);
+                    //}
+            
+            if (keyboard.nextInt() == 2) {
+                for (int i = 0; i < array.length; i++) {
+                    System.out.println(array[i]);
+                }
+            }
+
+            //if (keyboard.nextInt() == 4) {
+                //System.exit(1);
+            //}
+        }
+    }
+}
