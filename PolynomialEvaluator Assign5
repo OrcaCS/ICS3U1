@@ -25,19 +25,19 @@ public class PolynomialEvaluator {
         
             if (token.contains("x")) { // for terms with x
                 if (token.contains("^")) { // for terms with power
-                    power = Integer.parseInt(token.substring(token.indexOf("^") + 1));
-                } // grabs the int after ^ (the power value)
+                    power = Integer.parseInt(token.substring(token.indexOf("^") + 1)); // grabs the int after ^ (the power value)
+                }
                 
-                if (token.contains("+x")) { // if there is no coefficient
+                if (token.contains("+x")) { // if there is "no" coefficient (coeff is 1)
                     coefficient = 1;
-                } else if (token.contains("-x")) { // if there is no coefficient
+                } else if (token.contains("-x")) { // if there is "no" coefficient (coeff is -1)
                     coefficient = -1;
                 } else { // regular if coefficient is there
                 coefficient = Double.parseDouble(token.substring(0, token.indexOf("x")));
                 }
             } else { // if term is just a number with no x or power
                 coefficient = Double.parseDouble(token);
-                power = 0; //so x input is NOT touched
+                power = 0; // so x input is NOT touched
             }
             
             result += coefficient * Math.pow(x, power); // calculates every term w new variable values for coefficient and power
