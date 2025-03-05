@@ -23,7 +23,6 @@ public class PolynomialEvaluator {
         
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
-            System.out.println(token);
         
             if (token.contains("x")) {
                 if (token.contains("^")) {
@@ -34,8 +33,6 @@ public class PolynomialEvaluator {
                 coefficient = Double.parseDouble(token);
                 power = 0;
             }
-            
-        System.out.println("coefficient: " + coefficient + "\npower: " + power);
             
         result += coefficient * Math.pow(x, power);
         }
