@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class ArrayTest {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+
+        double[] coefficients;
+        int[] exponents;
+        String[] coefficientsString;
+        String[] test;
+
+        System.out.println("Please enter the coefficients separated by spaces.");
+        // test = keyboard.nextLine(); //isue is input string (1) not string multiple. i will have to take one string then split into multiple for array
+        coefficients = Double.parseDouble((keyboard.nextLine())).split(" ");
+
+        // read how many coefficients
+        // split coefficients
+        // make an array with the inputs
+        // add + to positive inputs
+
+        // System.out.println("Please enter the respective exponents separated by spaces.");
+
+        // read how many exponents
+        // split exponents
+        // make an array with the inputs
+
+        // System.out.println("Please enter a value for x: ");
+        // double x = keyboard.nextDouble();
+
+        // while still has more array values, insert into and print
+        // result =  //string??? or print result normal and calculate through equation
+        // System.out.println("Your polynomial is: " + coeff + x + "^" + exp + //more through loop );
+        // System.out.println("f(" + x + ")=" + result);
+    }
+}
