@@ -16,26 +16,33 @@ public class PolynomialEvaluator {
 
         keyboard.close();
         
-        polynomial = polynomial.substring(polynomial.indexOf("=") + 1);
+        polynomial = polynomial.substring(polynomial.indexOf("=") + 1); // removes f(x)=
         
-        StringTokenizer st = new StringTokenizer(polynomial, " ");
-        
+        StringTokenizer st = new StringTokenizer(polynomial, " "); // splits into tokens by spaces
         
         while (st.hasMoreTokens()) {
             String token = st.nextToken();
         
-            if (token.contains("x")) {
-                if (token.contains("^")) {
+            if (token.contains("x")) { // for terms with x
+                if (token.contains("^")) { // for terms with power
                     power = Integer.parseInt(token.substring(token.indexOf("^") + 1));
-                }
+                } // grabs the int after ^ (the power value)
+                
+                if (token.contains("+x")) { // if there is no coefficient
+                    coefficient = 1;
+                } else if (token.contains("-x")) { // if there is no coefficient
+                    coefficient = -1;
+                } else { // regular if coefficient is there
                 coefficient = Double.parseDouble(token.substring(0, token.indexOf("x")));
-            } else {
+                }
+            } else { // if term is just a number with no x or power
                 coefficient = Double.parseDouble(token);
-                power = 0;
+                power = 0; //so x input is NOT touched
             }
             
-        result += coefficient * Math.pow(x, power);
+            result += coefficient * Math.pow(x, power); // calculates every term w new variable values for coefficient and power
+            
         }
-    System.out.println("\nf(" + x + ")=" + result);
+        System.out.println("\nf(" + x + ")=" + result);
     }
 }
