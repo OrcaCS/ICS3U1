@@ -5,24 +5,40 @@ public class PolynomialEvaluator {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
         
-        System.out.println("Enter a polynomial that starts with 'f(x)' and is a degree of three: ");
+        double result = 0;
+        double coefficient = 1;
+        int power = 1;
+        
+        System.out.println("Enter a polynomial that starts with 'f(x)=': ");
         String polynomial = keyboard.nextLine();
         System.out.println("Enter a value for x: ");
         int x = keyboard.nextInt();
 
         keyboard.close();
-
-        //check later delim is f(x)
+        
+        polynomial = polynomial.substring(polynomial.indexOf("=") + 1);
+        
         StringTokenizer st = new StringTokenizer(polynomial, " ");
+        
+        
         while (st.hasMoreTokens()) {
-            System.out.println(st.nextToken());
+            String token = st.nextToken();
+            System.out.println(token);
+        
+            if (token.contains("x")) {
+                if (token.contains("^")) {
+                    power = Integer.parseInt(token.substring(token.indexOf("^") + 1));
+                }
+                coefficient = Double.parseDouble(token.substring(0, token.indexOf("x")));
+            } else {
+                coefficient = Double.parseDouble(token);
+                power = 0;
+            }
+            
+        System.out.println("coefficient: " + coefficient + "\npower: " + power);
+            
+        result += coefficient * Math.pow(x, power);
         }
-
-        /* st1 find coefficient
-         * coeff * x * read pow multiply
-         * 
-         * same for others
-         * 
-         */
+    System.out.println("\nf(" + x + ")=" + result);
     }
 }
