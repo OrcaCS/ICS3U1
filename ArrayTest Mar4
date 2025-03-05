@@ -8,7 +8,6 @@ public class ArrayTest {
 
         while (true) {
             System.out.println("\n\nMenu\n\n 1. Enter an array of strings. \n 2. Display the array. \n 3. Read a string from the array. \n 4. Stop the program. \n\nPlease enter a number corrresponding to the above option.");
-            
             int choice = keyboard.nextInt();
             keyboard.nextLine();
             
