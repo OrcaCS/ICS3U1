@@ -4,7 +4,7 @@ public class AmbiguousCase {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.println("\n\nPlease enter an angle in degrees (A) (A =/= 90 degrees): ");
+        System.out.println("\n\nPlease enter an angle in degrees (A) (A does not equal 90 degrees): ");
         double angleA = keyboard.nextDouble();
         System.out.println("\nPlease enter a side value (a): ");
         double a = keyboard.nextDouble();
@@ -14,20 +14,20 @@ public class AmbiguousCase {
 
         double h = b * Math.sin(Math.toRadians(angleA));
 
-        if (a < 90) {
+        if (angleA < 90) {
             if (a < h) {
                 System.out.println("You have no triangle.");
-            } else if (a == h) {
+            } else if (a == h) { //note to self, math rounding error. maybe use BigDecimal to round correctly.
                 System.out.println("You have a right triangle.");
             } else if (a > b) {
                 System.out.println("You have one triangle.");
-            } else {
+            } else { // the catch rest statement for h < a < b
                 System.out.println("You have two triangles (ambiguous case).");
             }
-        } else {
-            if (a <= h) {
+        } else { //if angleA is obtuse
+            if (a <= b) {
                 System.out.println("You have no triangle.");
-            } else {
+            } else { // a > b
                 System.out.println("You have one triangle.");
             }
         }
