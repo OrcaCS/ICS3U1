@@ -1,0 +1,39 @@
+import java.util.Scanner;
+ 
+ public class PowerRule {
+     public static void main(String[] args) throws Exception {
+         Scanner keyboard = new Scanner(System.in);
+         String function = "f(x) = ";
+         double sum = 0.0;
+         
+         System.out.println("\nEnter the coefficients:");
+         String coefficients = keyboard.nextLine();
+         System.out.println("\nEnter the exponents:");
+         String exponents = keyboard.nextLine();
+         keyboard.close();
+ 
+         String[] coeffSt = coefficients.split(" ");
+         String[] expSt = exponents.split(" ");
+         
+         System.out.print("\nYour first derivative is: f'(x) = ");
+ 
+         for (int i = 0; i < coeffSt.length; i++) {
+             double coefficient = Double.parseDouble(coeffSt[i]);
+             coefficient = (coefficient == (int) coefficient) ? (int) coefficient : coefficient;
+             int exponent = Integer.parseInt(expSt[i]);
+             String first;
+             
+             if (exponent == 0) {
+                 first = (coefficient == (int) coefficient)
+                    ? (i == 0 ? (int) coefficient + " " : (coefficient > 0 ? "+" : "") + (int) coefficient + " ")
+                    : (i == 0 ? coefficient + " " : (coefficient > 0 ? "+" : "") + coefficient + " ");
+             } else { // if exponent is not 0
+                 first = (coefficient == (int) coefficient)
+                    ? (i == 0 ? (int) coefficient * exponent + "x^" + (exponent - 1) + " " : (coefficient > 0 ? "+" : "") + (int) coefficient * exponent + "x^" + (exponent - 1) + " ")
+                    : (i == 0 ? coefficient * exponent + "x^" + (exponent - 1) + " " : (coefficient > 0 ? "+" : "") + coefficient * exponent + "x^" + (exponent - 1) + " ");
+             }
+             
+             System.out.print(first);
+         }
+     }
+ }
