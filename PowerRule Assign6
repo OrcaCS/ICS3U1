@@ -20,19 +20,18 @@ import java.util.Scanner;
          for (int i = 0; i < coeffSt.length; i++) {
              double coefficient = Double.parseDouble(coeffSt[i]);
              int exponent = Integer.parseInt(expSt[i]);
-             String first;
+             String result;
              
              if (exponent == 1) { // if exponent is 1
-                 first = (coefficient == (int) coefficient) // variable first. if coefficient is whole number:
+                 result = (coefficient == (int) coefficient) // variable first. if coefficient is whole number:
                     ? ((i == 0) ? (int) coefficient + " " : (coefficient > 0 ? "+" : "") + (int) coefficient + " ") // if first section, print whole coefficient, add space (do nothing). else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then print whole coefficient, add space.
                     : ((i == 0) ? coefficient + " " : (coefficient > 0 ? "+" : "") + coefficient + " "); // if first section, print coefficient, add space (do nothing). else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then print coefficient, add space.
              } else { // if exponent is not 0
-                 first = (coefficient == (int) coefficient) // variable first. if coefficient is whole number.
+                 result = (coefficient == (int) coefficient) // variable first. if coefficient is whole number.
                     ? ((i == 0) ? (int) coefficient * exponent + "x^" + (exponent - 1) + " " : (coefficient > 0 ? "+" : "") + (int) coefficient * exponent + "x^" + (exponent - 1) + " ") // if first section, print multiply coeff with exp. add exponent, add space. else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then multiply coeff with exp. add exponent, add space.
                     : ((i == 0) ? coefficient * exponent + "x^" + (exponent - 1) + " " : (coefficient > 0 ? "+" : "") + coefficient * exponent + "x^" + (exponent - 1) + " "); // if first section, print multiply coeff with exp. add exponent, add space. else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then multiply coeff with exp. add exponent, add space.
              }
-             System.out.print(first);
-             
+             System.out.print(result);
          }
              
         System.out.print("\nYour second derivative is: f'(x) = ");
@@ -42,21 +41,21 @@ import java.util.Scanner;
              int exponent = Integer.parseInt(expSt[i]);
             double newCoefficient = coefficient * exponent;
              int newExponent = exponent - 1;
-             String second;
+             String result;
             
             if (newExponent == 0) {
-            second = "";
+            result = "";
             } else
-            if (newExponent == 1) { // if exponent is 1
-                 second = (newCoefficient == (int) newCoefficient) // variable first. if coefficient is whole number:
-                    ? ((i == 0) ? (int) newCoefficient + " " : (newCoefficient > 0 ? "+" : "") + (int) newCoefficient + " ") // if first section, print whole coefficient, add space (do nothing). else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then print whole coefficient, add space.
-                    : ((i == 0) ? newCoefficient + " " : (newCoefficient > 0 ? "+" : "") + newCoefficient + " "); // if first section, print coefficient, add space (do nothing). else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then print coefficient, add space.
-             } else { // if exponent is not 0
-                 second = (newCoefficient == (int) newCoefficient) // variable first. if coefficient is whole number.
-                    ? ((i == 0) ? (int) newCoefficient * newExponent + "x^" + (newExponent - 1) + " " : (newCoefficient > 0 ? "+" : "") + (int) newCoefficient * newExponent + "x^" + (newExponent - 1) + " ") // if first section, print multiply coeff with exp. add exponent, add space. else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then multiply coeff with exp. add exponent, add space.
-                    : ((i == 0) ? newCoefficient * newExponent + "x^" + (newExponent - 1) + " " : (newCoefficient > 0 ? "+" : "") + newCoefficient * newExponent + "x^" + (newExponent - 1) + " "); // if first section, print multiply coeff with exp. add exponent, add space. else if is not first section: if coefficient is positive, print "+" else print nothing (operator), then multiply coeff with exp. add exponent, add space.
+            if (newExponent == 1) {
+                 result = (newCoefficient == (int) newCoefficient)
+                    ? ((i == 0) ? (int) newCoefficient + " " : (newCoefficient > 0 ? "+" : "") + (int) newCoefficient + " ")
+                    : ((i == 0) ? newCoefficient + " " : (newCoefficient > 0 ? "+" : "") + newCoefficient + " ");
+             } else {
+                 result = (newCoefficient == (int) newCoefficient)
+                    ? ((i == 0) ? (int) newCoefficient * newExponent + "x^" + (newExponent - 1) + " " : (newCoefficient > 0 ? "+" : "") + (int) newCoefficient * newExponent + "x^" + (newExponent - 1) + " ")
+                    : ((i == 0) ? newCoefficient * newExponent + "x^" + (newExponent - 1) + " " : (newCoefficient > 0 ? "+" : "") + newCoefficient * newExponent + "x^" + (newExponent - 1) + " ");
              }
-             System.out.print(second);
+             System.out.print(result);
         }
      }
  }
