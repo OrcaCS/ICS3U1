@@ -17,7 +17,7 @@ public class NewtonsMethod {
             }
         
             System.out.println("Would you like to try again? [y/n]");
-                if (keyboard.next().equals("n") || keyboard.next().equals("N")) {
+                if (keyboard.next().charAt(0) == ('n')) {
                     break;
                 }
         }
