@@ -1,17 +1,7 @@
 import java.util.Scanner;
 
 public static void quadraticFormula(double a, double b, double c) {
-    Scanner keyboard = new Scanner(System.in);
-
-    System.out.println("Please enter an a value:");
-    a = keyboard.nextDouble();
-    System.out.println("Please enter a b value:");
-    b = keyboard.nextDouble();
-    System.out.println("Please enter a c value:");
-    c = keyboard.nextDouble();
     double discriminant = b * b - 4 * a * c;
-    keyboard.close();
-
     double rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
     double rootTwo = (-b - Math.sqrt(discriminant)) / (2 * a);
 
@@ -20,8 +10,6 @@ public static void quadraticFormula(double a, double b, double c) {
 }
 
 public static double piApproximation(int n) {
-    Scanner keyboard = new Scanner(System.in);
-
     while (true) {
         double sum = 0.0;
     
@@ -36,18 +24,12 @@ public static double piApproximation(int n) {
             keyboard.close();
             break;
         }
-        return double;
+        return;
     }
 }
 
-public static void piApproximation(int m, int n) {
+public static void asymptoteFinder(int m, int n) {
         Scanner keyboard = new Scanner(System.in);
-
-        System.out.println("Please enter an m value:");
-        int m = keyboard.nextInt();
-        System.out.println("Please enter an n value:");
-        int n = keyboard.nextInt();
-        keyboard.close();
 
         if (m == n) {
             System.out.println("The asymptote is horizontal");
@@ -92,15 +74,31 @@ public static void piApproximation(int m, int n) {
 
 public class App {
     public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+        
         System.out.println("\nMenu\n\n1. Quadratic Formula\n2. Pi Approximation\n3.Asymptote Finder\n4. Exit");
         if (keyboard.next().charAt(0) == 1) {
+                Scanner keyboard = new Scanner(System.in);
+
+            System.out.println("Please enter an a value:");
+            a = keyboard.nextDouble();
+            System.out.println("Please enter a b value:");
+            b = keyboard.nextDouble();
+            System.out.println("Please enter a c value:");
+            c = keyboard.nextDouble();
+
             quadraticFormula;
         } else if (keyboard.next().charAt(0) == 2) {
             System.out.println("Please enter an n value:");
             int n = keyboard.nextInt();
             return piApproximation(n);
         } else if (keyboard.next().charAt(0) == 3) {
-            piApproximation;
+            System.out.println("Please enter an m value:");
+            int m = keyboard.nextInt();
+            System.out.println("Please enter an n value:");
+            int n = keyboard.nextInt();
+            
+            return asymptoteFinder();
         }
     }
 }
