@@ -21,7 +21,6 @@ public static double piApproximation(int n) {
         System.out.println("Do you want to try again? [y/n]");
 
         if (keyboard.next().charAt(0) == 'n') {
-            keyboard.close();
             break;
         }
         return;
@@ -29,8 +28,6 @@ public static double piApproximation(int n) {
 }
 
 public static void asymptoteFinder(int m, int n) {
-        Scanner keyboard = new Scanner(System.in);
-
         if (m == n) {
             System.out.println("The asymptote is horizontal");
         } else if (n > m) {
@@ -41,7 +38,7 @@ public static void asymptoteFinder(int m, int n) {
                     System.out.println("The asymptote is linear");
                     break;
                 case 2:
-                    System.out.println("The asymptote is qudratic");
+                    System.out.println("The asymptote is quadratic");
                     break;
                 case 3:
                     System.out.println("The asymptote is cubic");
@@ -77,28 +74,30 @@ public class App {
         Scanner keyboard = new Scanner(System.in);
         
         System.out.println("\nMenu\n\n1. Quadratic Formula\n2. Pi Approximation\n3.Asymptote Finder\n4. Exit");
-        if (keyboard.next().charAt(0) == 1) {
-                Scanner keyboard = new Scanner(System.in);
-
+        if (keyboard.nextInt() == 1) {
             System.out.println("Please enter an a value:");
-            a = keyboard.nextDouble();
+            double a = keyboard.nextDouble();
             System.out.println("Please enter a b value:");
-            b = keyboard.nextDouble();
+            double b = keyboard.nextDouble();
             System.out.println("Please enter a c value:");
-            c = keyboard.nextDouble();
+            double c = keyboard.nextDouble();
 
-            quadraticFormula;
-        } else if (keyboard.next().charAt(0) == 2) {
+            quadraticFormula(a, b, c);
+        } else if (keyboard.nextInt() == 2) {
             System.out.println("Please enter an n value:");
             int n = keyboard.nextInt();
-            return piApproximation(n);
-        } else if (keyboard.next().charAt(0) == 3) {
+            
+            piApproximation(n);
+        } else if (keyboard.nextInt() == 3) {
             System.out.println("Please enter an m value:");
             int m = keyboard.nextInt();
             System.out.println("Please enter an n value:");
             int n = keyboard.nextInt();
             
-            return asymptoteFinder();
+            asymptoteFinder(m, n);
+        } else {
+            System.out.println("Exiting the program.");
+            System.exit(1);
         }
     }
 }
