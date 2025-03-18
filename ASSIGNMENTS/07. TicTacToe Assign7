@@ -5,6 +5,8 @@ public class TicTacToe {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
         
+        int p = 1;
+        
         // intructions (who's turn, ask for row and column, mention x and o, player 1 and player 2)
         System.out.println("Welcome to tic tac toe. Take turns placing Xs with another player placing Os. The player to get 3 of their symbols in a row wins.");
         
@@ -12,25 +14,70 @@ public class TicTacToe {
         char[][] board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
         grid(board);
         
+        while (true) {
+        p = turn(keyboard, board, p);
+            if (win(board)) {
+                p--;
+                if (p % 2 == 1) {
+                    System.out.println("Player 1 wins!");
+                } else {
+                    System.out.println("Payer 2 wins!");
+                }
+                break;
+            }
+            if (draw(board)) {
+                System.out.println("Draw!");
+                break;
+            }
+        }
+    }
+        
+    public static int turn(Scanner keyboard, char[][] board, int p) {
+        if (p % 2 == 1) { // player 1
         System.out.println("\nPlayer 1");
-        System.out.println("Please select a row and a column, separated by a space, to place an X.");
+        System.out.println("Please select a row and a column, in digits, separated by a space, to place an X.");
+        } else {
+            System.out.println("\nPlayer 2");
+        System.out.println("Please select a row and a column, separated by a space, to place an O.");
+        }
         String input = keyboard.nextLine();
         String[] inputString = input.split(" ");
+        
+        if (!inputString[0].matches("[0-9]+") || !inputString[0].matches("[0-9]+")) { // checks numbers and not anything else
+            System.out.println("Invalid input. Please enter digits only.");
+            return p;
+        }
+        if (inputString.length != 2) { // checks amount of numbers 
+            System.out.println("Invalid input. Please enter two digits (row and column) separated by a space.");
+            return p;
+        }
+        
         int row = Integer.parseInt(inputString[0]) - 1;
         int col = Integer.parseInt(inputString[1]) - 1;
-        board[row][col] = 'X';
+        
+        if (row < 0 || row > 2 || col < 0 || col > 2) { // for out of bounds
+            System.out.println("Invalid move. Please choose a row and column between 1 and 3.");
+            return p;
+        }
+        
+        if (board[row][col] != '.') {
+            System.out.println("This cell is already occupied. Please choose another cell.");
+            return p;
+        }
+        
+        if (p % 2 == 1) {
+            board[row][col] = 'X';
+        } else {
+            board[row][col] = 'O';
+        }
         grid(board);
-        
-        // stop if out of bounds
-        
-        // take input, print input
-        
-        // check if win three in a row
+        p++;
+        return p;
     }
     
     // print board
     public static void grid(char[][] board) {
-        System.out.print("  | 1 | 2 | 3 |\n---------------\n");
+        System.out.print("\n  | 1 | 2 | 3 |\n---------------\n");
         for (int row = 0; row < board.length; row++) {
             switch (row) {
                 case 0:
@@ -48,5 +95,40 @@ public class TicTacToe {
             }
         System.out.println("\n---------------");
         }
+    }
+    
+    public static boolean win(char[][] board) { // checks for win
+        for (int row = 0; row < 3; row++) {
+            if (board[row][0] != '.' && board[row][0] == board[row][1] && board[row][1] == board[row][2]) {
+                System.out.println("Row win!");
+                return true;
+            }
+        }
+        for (int col = 0; col < 3; col++) {
+            if (board[0][col] != '.' && board[0][col] == board[1][col] && board[1][col] == board[2][col]) {
+                System.out.println("Column win!");
+                return true;
+            }
+        }
+        if (board[0][0] != '.' && board[0][0] == board[1][1] && board[1][1] == board[2][2]) {
+            System.out.println("Diagonal win!");
+            return true;
+        }
+        if (board[0][2] != '.' && board[0][2] == board[1][1] && board[1][1] == board[2][0]) {
+            System.out.println("Diagonal win!");
+            return true;
+        }
+        return false;
+    }
+    
+    public static boolean draw(char[][] board) { // checks for draw (no winners)
+        for (int row = 0; row < board.length; row++) {
+            for (int col = 0; col < board[row].length; col++) {
+                if (board[row][col] == '.') { // if any cell is empty
+                    return false;
+                }
+            }
+        }
+    return true;
     }
 }
