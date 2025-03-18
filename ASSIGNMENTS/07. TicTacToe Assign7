@@ -8,7 +8,7 @@ public class TicTacToe {
         int p = 1;
         
         // intructions (who's turn, ask for row and column, mention x and o, player 1 and player 2)
-        System.out.println("Welcome to tic tac toe. Take turns placing Xs with another player placing Os. The player to get 3 of their symbols in a row wins.");
+        System.out.println("Welcome to tic tac toe. Take turns placing Xs with another player placing Os. The first player to get 3 of their symbols in a row wins.");
         
         // make an array for board
         char[][] board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
