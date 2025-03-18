@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+public class Main {
 public static void quadraticFormula(double a, double b, double c) {
     double discriminant = b * b - 4 * a * c;
     double rootOne = (-b + Math.sqrt(discriminant)) / (2 * a);
@@ -11,19 +12,15 @@ public static void quadraticFormula(double a, double b, double c) {
 
 public static double piApproximation(int n) {
     while (true) {
+        Scanner keyboard = new Scanner(System.in);
+        
         double sum = 0.0;
     
         for (int i = 0; i <= n; i++) {
             sum += Math.pow(-1, i) / (2 * i + 1);
         }
 
-        System.out.println("Your pi approximation is: " + 4 * sum);
-        System.out.println("Do you want to try again? [y/n]");
-
-        if (keyboard.next().charAt(0) == 'n') {
-            break;
-        }
-        return;
+        return sum * 4;
     }
 }
 
@@ -31,51 +28,52 @@ public static void asymptoteFinder(int m, int n) {
         if (m == n) {
             System.out.println("The asymptote is horizontal");
         } else if (n > m) {
-            System.out.println("The asymptote is the x-axis");
+            System.out.println("The asymptote is the x-axis.");
         } else {
             switch (m - n) {
                 case 1:
-                    System.out.println("The asymptote is linear");
+                    System.out.println("The asymptote is linear.");
                     break;
                 case 2:
-                    System.out.println("The asymptote is quadratic");
+                    System.out.println("The asymptote is quadratic.");
                     break;
                 case 3:
-                    System.out.println("The asymptote is cubic");
+                    System.out.println("The asymptote is cubic.");
                     break;
                 case 4:
-                    System.out.println("The asymptote is quartic");
+                    System.out.println("The asymptote is quartic.");
                     break;
                 case 5:
-                    System.out.println("The asymptote is quintic");
+                    System.out.println("The asymptote is quintic.");
                     break;
                 case 6:
-                    System.out.println("The asymptote is sextic");
+                    System.out.println("The asymptote is sextic.");
                     break;
                 case 7:
-                    System.out.println("The asymptote is heptic");
+                    System.out.println("The asymptote is heptic.");
                     break;
                 case 8:
-                    System.out.println("The asymptote is octic");
+                    System.out.println("The asymptote is octic.");
                     break;
                 case 9:
-                    System.out.println("The asymptote is nonic");
+                    System.out.println("The asymptote is nonic.");
                     break;
                 case 10:
-                    System.out.println("The asymptote is decic");
+                    System.out.println("The asymptote is decic.");
                     break;
             }
         }
 }
 
-
-public class App {
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
         
-        System.out.println("\nMenu\n\n1. Quadratic Formula\n2. Pi Approximation\n3.Asymptote Finder\n4. Exit");
-        if (keyboard.nextInt() == 1) {
-            System.out.println("Please enter an a value:");
+        while (true) {
+        System.out.println("\nMenu\n\n1. Quadratic Formula\n2. Pi Approximation\n3. Asymptote Finder\n4. Exit");
+        int choice = keyboard.nextInt();
+        
+        if (choice == 1) {
+            System.out.println("\nPlease enter an a value:");
             double a = keyboard.nextDouble();
             System.out.println("Please enter a b value:");
             double b = keyboard.nextDouble();
@@ -83,21 +81,22 @@ public class App {
             double c = keyboard.nextDouble();
 
             quadraticFormula(a, b, c);
-        } else if (keyboard.nextInt() == 2) {
-            System.out.println("Please enter an n value:");
+        } else if (choice == 2) {
+            System.out.println("\nPlease enter an n value:");
             int n = keyboard.nextInt();
             
-            piApproximation(n);
-        } else if (keyboard.nextInt() == 3) {
-            System.out.println("Please enter an m value:");
+            System.out.println("Your pi approximation is: " + piApproximation(n));
+        } else if (choice == 3) {
+            System.out.println("\nPlease enter an m value:");
             int m = keyboard.nextInt();
             System.out.println("Please enter an n value:");
             int n = keyboard.nextInt();
             
             asymptoteFinder(m, n);
         } else {
-            System.out.println("Exiting the program.");
+            System.out.println("\nExiting the program.");
             System.exit(1);
+        }
         }
     }
 }
