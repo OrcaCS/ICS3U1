@@ -1,25 +1,52 @@
 import java.util.Scanner;
 
 public class TicTacToe {
+    
     public static void main(String[] args) throws Exception {
         Scanner keyboard = new Scanner(System.in);
         
-        // make an array for board
-        char[][] board = { {'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'} };
-        
-        // print board
-        public static void grid(int row, int col) {
-            while (row = 0; row < board.length(); row++) {
-                while (col = 0; col < board.length(); col++) {
-                }
-            }
-        }
-        
         // intructions (who's turn, ask for row and column, mention x and o, player 1 and player 2)
+        System.out.println("Welcome to tic tac toe. Take turns placing Xs with another player placing Os. The player to get 3 of their symbols in a row wins.");
+        
+        // make an array for board
+        char[][] board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+        grid(board);
+        
+        System.out.println("\nPlayer 1");
+        System.out.println("Please select a row and a column, separated by a space, to place an X.");
+        String input = keyboard.nextLine();
+        String[] inputString = input.split(" ");
+        int row = Integer.parseInt(inputString[0]) - 1;
+        int col = Integer.parseInt(inputString[1]) - 1;
+        board[row][col] = 'X';
+        grid(board);
+        
         // stop if out of bounds
         
         // take input, print input
         
         // check if win three in a row
+    }
+    
+    // print board
+    public static void grid(char[][] board) {
+        System.out.print("  | 1 | 2 | 3 |\n---------------\n");
+        for (int row = 0; row < board.length; row++) {
+            switch (row) {
+                case 0:
+                System.out.print("1 | ");
+                break;
+                case 1:
+                System.out.print("2 | ");
+                break;
+                case 2:
+                System.out.print("3 | ");
+                break;
+            }
+            for (int col = 0; col < board[row].length; col++) {
+            System.out.print(board[row][col] + " | ");
+            }
+        System.out.println("\n---------------");
+        }
     }
 }
