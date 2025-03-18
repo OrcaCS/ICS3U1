@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class TicTacToe {
+    public static void main(String[] args) throws Exception {
+        Scanner keyboard = new Scanner(System.in);
+        
+        // make an array for board
+        char[][] board = { {'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'} };
+        
+        // print board
+        public static void grid(int row, int col) {
+            while (row = 0; row < board.length(); row++) {
+                while (col = 0; col < board.length(); col++) {
+                }
+            }
+        }
+        
+        // intructions (who's turn, ask for row and column, mention x and o, player 1 and player 2)
+        // stop if out of bounds
+        
+        // take input, print input
+        
+        // check if win three in a row
+    }
+}
