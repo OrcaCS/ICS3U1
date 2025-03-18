@@ -18,16 +18,15 @@ public class PolynomialEvaluator {
         
         polynomial = polynomial.substring(polynomial.indexOf("=") + 1); // removes f(x)=
         
-        StringTokenizer st = new StringTokenizer(polynomial, " "); // splits into tokens by spaces
+        StringTokenizer poly = new StringTokenizer(polynomial, " "); // splits into tokens by spaces
         
-        while (st.hasMoreTokens()) {
-            String token = st.nextToken();
+        while (poly.hasMoreTokens()) {
+            String token = poly.nextToken();
         
             if (token.contains("x")) { // for terms with x
                 if (token.contains("^")) { // for terms with power
                     power = Integer.parseInt(token.substring(token.indexOf("^") + 1)); // grabs the int after ^ (the power value)
                 }
-                
                 if (token.contains("+x")) { // if there is "no" coefficient (coeff is 1)
                     coefficient = 1;
                 } else if (token.contains("-x")) { // if there is "no" coefficient (coeff is -1)
