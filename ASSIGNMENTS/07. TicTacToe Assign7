@@ -24,8 +24,7 @@ public class TicTacToe {
                     System.out.println("Player 2 wins!");
                 }
                 break;
-            }
-            if (draw(board)) {
+            } else if (draw(board)) {
                 System.out.println("Draw!");
                 break;
             }
