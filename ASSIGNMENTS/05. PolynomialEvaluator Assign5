@@ -9,7 +9,7 @@ public class PolynomialEvaluator {
         double coefficient = 1;
         int power = 1;
         
-        System.out.println("Enter a polynomial that starts with 'f(x)=': ");
+        System.out.println("\n\nEnter a polynomial that starts with 'f(x)=': ");
         String polynomial = keyboard.nextLine();
         System.out.println("Enter a value for x: ");
         int x = keyboard.nextInt();
