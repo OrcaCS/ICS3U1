@@ -11,7 +11,7 @@ public class TicTacToe {
         System.out.println("Welcome to tic tac toe. Take turns placing Xs with another player placing Os. The first player to get 3 of their symbols in a row wins.");
         
         // make an array for board
-        char[][] board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}};
+        char[][] board = {{'.', '.', '.'}, {'.', '.', '.'}, {'.', '.', '.'}}; // fills in each slot with . less dubugging
         grid(board);
         
         while (true) {
@@ -21,7 +21,7 @@ public class TicTacToe {
                 if (p % 2 == 1) {
                     System.out.println("Player 1 wins!");
                 } else {
-                    System.out.println("Payer 2 wins!");
+                    System.out.println("Player 2 wins!");
                 }
                 break;
             }
