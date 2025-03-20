@@ -40,9 +40,13 @@ public class TicTacToe {
         System.out.println("Please select a row and a column, separated by a space, to place an O.");
         }
         String input = keyboard.nextLine();
-        String[] inputString = input.split(" ");
+
+        //try {
+            String[] inputString = input.split(" ");
+        //} catch (NumberFormatException) {
+        //} catch (ArrayIndexOutOfBoundsException)
         
-        if (!inputString[0].matches("[0-9]+") || !inputString[0].matches("[0-9]+")) { // checks numbers and not anything else
+        /* if (!inputString[0].matches("[0-9]+") || !inputString[0].matches("[0-9]+")) { // checks numbers and not anything else
             System.out.println("Invalid input. Please enter digits only.");
             return p;
         }
@@ -50,11 +54,12 @@ public class TicTacToe {
             System.out.println("Invalid input. Please enter two digits (row and column) separated by a space.");
             return p;
         }
+        */
         
         int row = Integer.parseInt(inputString[0]) - 1;
         int col = Integer.parseInt(inputString[1]) - 1;
         
-        if (row < 0 || row > 2 || col < 0 || col > 2) { // for out of bounds
+        /* if (row < 0 || row > 2 || col < 0 || col > 2) { // for out of bounds
             System.out.println("Invalid move. Please choose a row and column between 1 and 3.");
             return p;
         }
@@ -63,6 +68,7 @@ public class TicTacToe {
             System.out.println("This cell is already occupied. Please choose another cell.");
             return p;
         }
+        */
         
         if (p % 2 == 1) {
             board[row][col] = 'X';
